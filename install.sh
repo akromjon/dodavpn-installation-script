@@ -42,7 +42,7 @@ install_pritunl_integration() {
     cd "$destination_dir" || exit
 
     # Download the file using curl
-    curl -O "$file_url"
+    wget "$file_url"
 
     # Check if the download was successful
     if [ $? -eq 0 ]; then
