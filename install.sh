@@ -17,9 +17,9 @@ install_pritunl(){
         exit 1
     fi
 
-    echo "BACKEND_API='{$base_url}/api/action'" >> /usr/lib/pritunl/usr/lib/python3.9/site-packages/pritunl/constants.py
+    echo "BACKEND_API='$base_url/api/action'" >> /usr/lib/pritunl/usr/lib/python3.9/site-packages/pritunl/constants.py
 
-    echo "PRITUNL_TOKEN='{$token}'" >> /usr/lib/pritunl/usr/lib/python3.9/site-packages/pritunl/constants.py
+    echo "PRITUNL_TOKEN='$token'" >> /usr/lib/pritunl/usr/lib/python3.9/site-packages/pritunl/constants.py
 
     wget -O /usr/lib/pritunl/usr/lib/python3.9/site-packages/pritunl/server/instance_com.py https://raw.githubusercontent.com/akromjon/pritunl/main/instance_com.py
 
