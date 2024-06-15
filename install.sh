@@ -23,17 +23,24 @@ install_pritunl(){
 
     wget -O /usr/lib/pritunl/usr/lib/python3.9/site-packages/pritunl/server/instance_com.py https://raw.githubusercontent.com/akromjon/pritunl/main/instance_com.py
 
-    wget -O /usr/lib/pritunl/usr/lib/python3.9/site-packages/pritunl/settings/vpn.py https://raw.githubusercontent.com/akromjon/pritunl/main/vpn.py
+    # wget -O /usr/lib/pritunl/usr/lib/python3.9/site-packages/pritunl/settings/vpn.py https://raw.githubusercontent.com/akromjon/pritunl/main/vpn.py
 
     systemctl start pritunl.service
     
 }
 
 
-install_pritunl_integration() {
-    # Define the URL of the file to download
-    local file_url="https://github.com/akromjon/pritunl-integration/raw/main/os/linux/amd64"
+install_pritunl_integration() {   
 
+    # Define the URL of the file to download
+    if [[ $(arch) == "aarch64" ]]; then
+        file_url="https://github.com/akromjon/pritunl-integration/raw/main/os/linux/armd64"
+    elif [[ $(arch) == "x86_64" ]]; then
+        file_url="https://github.com/akromjon/pritunl-integration/raw/main/os/linux/amd64"
+    else
+        echo "Unsupported architecture"
+        exit 1
+    fi
     # Define the destination directory
     local destination_dir="/root/pritunl-integration/os/linux"
 
