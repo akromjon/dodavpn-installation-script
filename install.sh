@@ -23,7 +23,7 @@ install_pritunl(){
 
     wget -O /usr/lib/pritunl/usr/lib/python3.9/site-packages/pritunl/server/instance_com.py https://raw.githubusercontent.com/akromjon/pritunl/main/instance_com.py
 
-    # wget -O /usr/lib/pritunl/usr/lib/python3.9/site-packages/pritunl/settings/vpn.py https://raw.githubusercontent.com/akromjon/pritunl/main/vpn.py
+    wget -O /usr/lib/pritunl/usr/lib/python3.9/site-packages/pritunl/settings/vpn.py https://raw.githubusercontent.com/akromjon/pritunl/main/vpn.py
 
     systemctl start pritunl.service
     
